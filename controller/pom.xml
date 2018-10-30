@@ -30,6 +30,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.0.9.RELEASE</version>
+        </dependency>
+
+        <dependency>
             <groupId>hu.iit.me</groupId>
             <artifactId>service</artifactId>
             <version>1.0-SNAPSHOT</version>
