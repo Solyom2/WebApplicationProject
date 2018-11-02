@@ -13,6 +13,7 @@
         <module>service</module>
         <module>controller</module>
         <module>web</module>
+        <module>dao</module>
     </modules>
 
 

@@ -6,10 +6,10 @@ public class Applicant {
     private String name;
     private int age;
     private String address;
-    private String degree;
+    private Degree degree;
     private String phoneNumber;
 
-    public Applicant(int id, String name, int age, String address, String degree, String phoneNumber) {
+    public Applicant(int id, String name, int age, String address, Degree degree, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -50,11 +50,11 @@ public class Applicant {
         this.address = address;
     }
 
-    public String getDegree() {
+    public Degree getDegree() {
         return degree;
     }
 
-    public void setDegree(String degree) {
+    public void setDegree(Degree degree) {
         this.degree = degree;
     }
 
