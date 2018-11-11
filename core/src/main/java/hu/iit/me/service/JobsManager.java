@@ -7,8 +7,8 @@ import java.util.Collection;
 public interface JobsManager {
 
     Collection<Job> listAllJobs();
-    Collection<Job> findJobById(int id);
-    Collection<Job> listJobsByName(String name);
+    Collection<Job> findJobById(int jobId);
+    Collection<Job> listJobsByName(String jobName);
     Collection<Job> listJobsByDepartment(String department);
     Collection<Job> listJobsByPayment(int payment);
 

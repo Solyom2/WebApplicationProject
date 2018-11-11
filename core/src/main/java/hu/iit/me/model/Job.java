@@ -2,34 +2,34 @@ package hu.iit.me.model;
 
 public class Job {
 
-    private int id;
-    private String name;
+    private int jobId;
+    private String jobName;
     private String department;
     private int payment;
     private String description;
 
-    public Job(int id, String name, String department, int payment, String description) {
-        this.id = id;
-        this.name = name;
+    public Job(int jobId, String name, String department, int payment, String description) {
+        this.jobId = jobId;
+        this.jobName = name;
         this.department = department;
         this.payment = payment;
         this.description = description;
     }
 
-    public int getId() {
-        return id;
+    public int getJobId() {
+        return jobId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setJobId(int jobId) {
+        this.jobId = jobId;
     }
 
-    public String getName() {
-        return name;
+    public String getJobName() {
+        return jobName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
     }
 
     public String getDepartment() {
@@ -59,8 +59,8 @@ public class Job {
     @Override
     public String toString() {
         return "Job{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "jobId=" + jobId +
+                ", jobName='" + jobName + '\'' +
                 ", department='" + department + '\'' +
                 ", payment=" + payment +
                 ", description='" + description + '\'' +

@@ -6,10 +6,10 @@ import java.util.Collection;
 
 public interface JobDAO {
 
-    Collection<Job> listAllJobs();
-    Collection<Job> findJobById(int id);
-    Collection<Job> listJobsByName(String name);
-    Collection<Job> listJobsByDepartment(String department);
-    Collection<Job> listJobsByPayment(int payment);
+    Collection<Job> searchAllJobs();
+    Collection<Job> searchJobById(int jobId);
+    Collection<Job> searchJobsByName(String jobName);
+    Collection<Job> searchJobsByDepartment(String department);
+    Collection<Job> searchJobsByPayment(int payment);
 
 }

@@ -9,7 +9,7 @@ public interface ApplicantDAO {
 
     Collection<Applicant> searchAllApplicants();
     Collection<Applicant> searchApplicantByName(String name);
-    Collection<Applicant> searchApplicantByPhoneNumber(String phoneNUmber);
+    Collection<Applicant> searchApplicantByPhoneNumber(String phoneNumber);
     Collection<Applicant> searchApplicantById(int id);
     Collection<Applicant> searchApplicantsByDegree(Degree degree);
     Collection<Applicant> searchApplicantsByAddress(String address);
