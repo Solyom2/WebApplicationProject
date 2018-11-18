@@ -27,7 +27,11 @@ public class ApplicantDAOImp implements ApplicantDAO {
 
     @Override
     public Collection<Applicant> searchApplicantByName(String name) {
-        return this.applicants;
+        ArrayList<Applicant> results = new ArrayList<>();
+        for(Applicant a : applicants) {
+            if(name.equals(a.getName())) results.add(a);
+        }
+        return results;
     }
 
     @Override
@@ -37,17 +41,29 @@ public class ApplicantDAOImp implements ApplicantDAO {
 
     @Override
     public Collection<Applicant> searchApplicantById(int id) {
-        return this.applicants;
+        ArrayList<Applicant> results = new ArrayList<>();
+        for(Applicant a : applicants) {
+            if(id == a.getId()) results.add(a);
+        }
+        return results;
     }
 
     @Override
     public Collection<Applicant> searchApplicantsByDegree(Degree degree) {
-        return this.applicants;
+        ArrayList<Applicant> results = new ArrayList<>();
+        for(Applicant a : applicants) {
+            if(degree == a.getDegree()) results.add(a);
+        }
+        return results;
     }
 
     @Override
     public Collection<Applicant> searchApplicantsByAddress(String address) {
-        return this.applicants;
+        ArrayList<Applicant> results = new ArrayList<>();
+        for(Applicant a : applicants) {
+            if(address.equals(a.getAddress())) results.add(a);
+        }
+        return results;
     }
 
 }

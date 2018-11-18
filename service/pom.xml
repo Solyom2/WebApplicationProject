@@ -11,7 +11,7 @@
 
     <artifactId>service</artifactId>
 
-    <jobName>service</jobName>
+    <name>service</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -22,7 +22,6 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>hu.iit.me</groupId>
             <artifactId>core</artifactId>

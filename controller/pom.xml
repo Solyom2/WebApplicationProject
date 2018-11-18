@@ -11,7 +11,7 @@
 
     <artifactId>controller</artifactId>
 
-    <jobName>controller</jobName>
+    <name>controller</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -69,5 +69,26 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>xjc</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <packageName>hu.iit.me.dto</packageName>
+                    <sources>src/main/resources</sources>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>

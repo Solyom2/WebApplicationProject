@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="webapp"
+           xmlns="webapp"
+           elementFormDefault="qualified">
+    
+    <xs:complexType name="applicant_type">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="age" type="xs:integer"/>
+            <xs:element name="address" type="xs:string"/>
+            <xs:element name="degree">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="PRIMARY_SCHOOL"/>
+                        <xs:enumeration value="HIGH_SCHOOL"/>
+                        <xs:enumeration value="UNIVERSITY"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="phoneNumber" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:integer" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="job_type">
+        <xs:sequence>
+            <xs:element name="jobName" type="xs:string"/>
+            <xs:element name="department" type="xs:string"/>
+            <xs:element name="payment" type="xs:integer"/>
+            <xs:element name="description" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="jobId" type="xs:integer" use="required"/>
+    </xs:complexType>
+
+</xs:schema>

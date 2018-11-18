@@ -27,22 +27,38 @@ public class JobDAOImp implements JobDAO {
 
     @Override
     public Collection<Job> searchJobById(int jobId) {
-        return this.jobs;
+        ArrayList<Job> results = new ArrayList<>();
+        for(Job j : jobs) {
+            if(jobId == j.getJobId()) results.add(j);
+        }
+        return results;
     }
 
     @Override
     public Collection<Job> searchJobsByName(String jobName) {
-        return this.jobs;
+        ArrayList<Job> results = new ArrayList<>();
+        for(Job j : jobs) {
+            if(jobName.equals(j.getJobName())) results.add(j);
+        }
+        return results;
     }
 
     @Override
     public Collection<Job> searchJobsByDepartment(String department) {
-        return this.jobs;
+        ArrayList<Job> results = new ArrayList<>();
+        for(Job j : jobs) {
+            if(department.equals(j.getDepartment())) results.add(j);
+        }
+        return results;
     }
 
     @Override
     public Collection<Job> searchJobsByPayment(int payment) {
-        return this.jobs;
+        ArrayList<Job> results = new ArrayList<>();
+        for(Job j : jobs) {
+            if(payment == j.getPayment()) results.add(j);
+        }
+        return results;
     }
 
 }
