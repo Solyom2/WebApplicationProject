@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.Collection;
 
 @Controller
@@ -47,7 +44,7 @@ public class ApplicantController {
 
     @RequestMapping(value="/listByDegree", method = RequestMethod.GET)
     @ResponseBody
-    public Collection<ApplicantType> listApplicantByDegree(@RequestParam(value = "degree") Degree degree) {
+    public Collection<ApplicantType> listApplicantByDegree(@RequestParam(value = "degree") String degree) {
         Collection<Applicant> applicants = applicantsManager.listApplicantsByDegree(degree);
         return DTOConverter.applicantConverter(applicants);
     }

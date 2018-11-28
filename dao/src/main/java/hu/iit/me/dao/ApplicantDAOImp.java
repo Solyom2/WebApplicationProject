@@ -14,10 +14,12 @@ public class ApplicantDAOImp implements ApplicantDAO {
         Applicant applicant1 = new Applicant(1, "Kovács Béla", 40, "Miskolc", Degree.HIGH_SCHOOL, "06701234567");
         Applicant applicant2 = new Applicant(2, "Szabó jános", 35, "Ózd", Degree.UNIVERSITY, "06301357900");
         Applicant applicant3 = new Applicant(3, "Nagy Géza", 23, "Budapest", Degree.PRIMARY_SCHOOL, "201002000");
+        Applicant applicant4 = new Applicant(4, "Horváth Róbert", 30, "Miskolc", Degree.UNIVERSITY, "205456565");
 
         applicants.add(applicant1);
         applicants.add(applicant2);
         applicants.add(applicant3);
+        applicants.add(applicant4);
     }
 
     @Override
@@ -35,11 +37,6 @@ public class ApplicantDAOImp implements ApplicantDAO {
     }
 
     @Override
-    public Collection<Applicant> searchApplicantByPhoneNumber(String phoneNumber) {
-        return this.applicants;
-    }
-
-    @Override
     public Collection<Applicant> searchApplicantById(int id) {
         ArrayList<Applicant> results = new ArrayList<>();
         for(Applicant a : applicants) {
@@ -49,10 +46,11 @@ public class ApplicantDAOImp implements ApplicantDAO {
     }
 
     @Override
-    public Collection<Applicant> searchApplicantsByDegree(Degree degree) {
+    public Collection<Applicant> searchApplicantsByDegree(String degree) {
         ArrayList<Applicant> results = new ArrayList<>();
         for(Applicant a : applicants) {
-            if(degree == a.getDegree()) results.add(a);
+            Degree d = Degree.valueOf(degree);
+            if(d == a.getDegree()) results.add(a);
         }
         return results;
     }

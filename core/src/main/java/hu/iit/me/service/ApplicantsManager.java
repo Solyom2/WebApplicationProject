@@ -9,9 +9,8 @@ public interface ApplicantsManager {
 
     Collection<Applicant> listAllApplicants();
     Collection<Applicant> findApplicantByName(String name);
-    Collection<Applicant> findApplicantByPhoneNumber(String phoneNUmber);
     Collection<Applicant> findApplicantById(int id);
-    Collection<Applicant> listApplicantsByDegree(Degree degree);
+    Collection<Applicant> listApplicantsByDegree(String degree);
     Collection<Applicant> listApplicantsByAddress(String address);
 
 }

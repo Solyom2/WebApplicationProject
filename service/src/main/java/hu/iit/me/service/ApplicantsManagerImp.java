@@ -25,17 +25,12 @@ public class ApplicantsManagerImp implements ApplicantsManager {
     }
 
     @Override
-    public Collection<Applicant> findApplicantByPhoneNumber(String phoneNumber) {
-        return applicantDAO.searchApplicantByPhoneNumber(phoneNumber);
-    }
-
-    @Override
     public Collection<Applicant> findApplicantById(int id) {
         return applicantDAO.searchApplicantById(id);
     }
 
     @Override
-    public Collection<Applicant> listApplicantsByDegree(Degree degree) {
+    public Collection<Applicant> listApplicantsByDegree(String degree) {
         return applicantDAO.searchApplicantsByDegree(degree);
     }
 

@@ -10,13 +10,15 @@ public class JobDAOImp implements JobDAO {
     private Collection<Job> jobs = new ArrayList<>();
 
     public JobDAOImp() {
-        Job job1 = new Job(1,"Software testing", "IT", 400000, "desc");
-        Job job2 = new Job(2, "Night guard", "Security", 250000, "desc");
-        Job job3 = new Job(3, "Logistics manager", "Store", 350000, "desc");
+        Job job1 = new Job(1,"Software testing", "IT", 400000, "Test the company's softwares");
+        Job job2 = new Job(2, "Night guard", "Security", 250000, "Watch the gates");
+        Job job3 = new Job(3, "Logistics manager", "Store", 350000, "Supervise warehouses");
+        Job job4 = new Job(4, "Lead developer", "IT", 450000, "Control the software development");
 
         jobs.add(job1);
         jobs.add(job2);
         jobs.add(job3);
+        jobs.add(job4);
     }
 
 
