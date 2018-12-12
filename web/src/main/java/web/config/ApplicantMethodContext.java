@@ -16,8 +16,8 @@ public class ApplicantMethodContext {
     }
 
     @Bean
-    public ApplicantDAO applicantDAO() {
-        return new ApplicantDAOImp();
+    public ApplicantDAO applicantDAO() throws Exception {
+            return new ApplicantDAOImp();
     }
 
 }

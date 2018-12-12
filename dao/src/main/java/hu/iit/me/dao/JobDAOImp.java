@@ -1,5 +1,6 @@
 package hu.iit.me.dao;
 
+import hu.iit.me.exceptions.NotFoundException;
 import hu.iit.me.model.Job;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ public class JobDAOImp implements JobDAO {
 
     private Collection<Job> jobs = new ArrayList<>();
 
-    public JobDAOImp() {
+    public JobDAOImp() throws Exception {
         Job job1 = new Job(1,"Software testing", "IT", 400000, "Test the company's softwares");
         Job job2 = new Job(2, "Night guard", "Security", 250000, "Watch the gates");
         Job job3 = new Job(3, "Logistics manager", "Store", 350000, "Supervise warehouses");
@@ -28,38 +29,46 @@ public class JobDAOImp implements JobDAO {
     }
 
     @Override
-    public Collection<Job> searchJobById(int jobId) {
+    public Collection<Job> searchJobById(int jobId) throws NotFoundException {
         ArrayList<Job> results = new ArrayList<>();
         for(Job j : jobs) {
             if(jobId == j.getJobId()) results.add(j);
         }
+        if(results.size() == 0)
+            throw new NotFoundException();
         return results;
     }
 
     @Override
-    public Collection<Job> searchJobsByName(String jobName) {
+    public Collection<Job> searchJobsByName(String jobName) throws NotFoundException {
         ArrayList<Job> results = new ArrayList<>();
         for(Job j : jobs) {
             if(jobName.equals(j.getJobName())) results.add(j);
         }
+        if(results.size() == 0)
+            throw new NotFoundException();
         return results;
     }
 
     @Override
-    public Collection<Job> searchJobsByDepartment(String department) {
+    public Collection<Job> searchJobsByDepartment(String department) throws NotFoundException {
         ArrayList<Job> results = new ArrayList<>();
         for(Job j : jobs) {
             if(department.equals(j.getDepartment())) results.add(j);
         }
+        if(results.size() == 0)
+            throw new NotFoundException();
         return results;
     }
 
     @Override
-    public Collection<Job> searchJobsByPayment(int payment) {
+    public Collection<Job> searchJobsByPayment(int payment) throws NotFoundException {
         ArrayList<Job> results = new ArrayList<>();
         for(Job j : jobs) {
             if(payment == j.getPayment()) results.add(j);
         }
+        if(results.size() == 0)
+            throw new NotFoundException();
         return results;
     }
 

@@ -3,6 +3,7 @@ package hu.iit.me.controller;
 import hu.iit.me.dto.ApplicantType;
 import hu.iit.me.dto.JobType;
 import hu.iit.me.model.Applicant;
+import hu.iit.me.model.Degree;
 import hu.iit.me.model.Job;
 
 import java.math.BigInteger;
@@ -39,6 +40,45 @@ public class DTOConverter {
             jobType.setPayment(BigInteger.valueOf(j.getPayment()));
             jobType.setDescription(j.getDescription());
             results.add(jobType);
+        }
+
+        return results;
+    }
+
+    public static Collection<Applicant> applicantTypeConverter(Collection<ApplicantType> applicantTypes) {
+        Collection<Applicant> results = new ArrayList<>();
+        BigInteger big;
+
+        for(ApplicantType a : applicantTypes) {
+            Applicant applicant = new Applicant();
+            big = a.getId();
+            applicant.setId(big.intValue());
+            applicant.setName(a.getName());
+            big = a.getAge();
+            applicant.setAge(big.intValue());
+            applicant.setAddress(a.getAddress());
+            applicant.setDegree(Degree.valueOf(a.getDegree()));
+            applicant.setPhoneNumber(a.getPhoneNumber());
+            results.add(applicant);
+        }
+
+        return results;
+    }
+
+    public static Collection<Job> jobTypeConverter(Collection<JobType> jobTypes) {
+        Collection<Job> results = new ArrayList<>();
+        BigInteger big;
+
+        for(JobType j : jobTypes) {
+            Job job = new Job();
+            big = j.getJobId();
+            job.setJobId(big.intValue());
+            job.setJobName(j.getJobName());
+            job.setDepartment(j.getDepartment());
+            big = j.getPayment();
+            job.setPayment(big.intValue());
+            job.setDescription(j.getDescription());
+            results.add(job);
         }
 
         return results;

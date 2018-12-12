@@ -16,7 +16,7 @@ public class JobMethodContext {
     }
 
     @Bean
-    public JobDAO jobDAO() {
+    public JobDAO jobDAO() throws Exception {
         return new JobDAOImp();
     }
 

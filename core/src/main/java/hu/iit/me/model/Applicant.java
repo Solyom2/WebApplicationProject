@@ -1,5 +1,10 @@
 package hu.iit.me.model;
 
+import hu.iit.me.exceptions.EmptyFieldException;
+import hu.iit.me.exceptions.InvalidAgeException;
+import hu.iit.me.exceptions.InvalidIdException;
+import hu.iit.me.exceptions.InvalidPhoneNumberException;
+
 public class Applicant {
 
     private int id;
@@ -9,7 +14,15 @@ public class Applicant {
     private Degree degree;
     private String phoneNumber;
 
-    public Applicant(int id, String name, int age, String address, Degree degree, String phoneNumber) {
+    public Applicant() {}
+
+    public Applicant(int id, String name, int age, String address, Degree degree, String phoneNumber) throws InvalidIdException, InvalidAgeException, InvalidPhoneNumberException, EmptyFieldException{
+        testId(id);
+        testEmptyField(name);
+        testEmptyField(address);
+        testAge(age);
+        testPhoneNumber(phoneNumber);
+
         this.id = id;
         this.name = name;
         this.age = age;
@@ -64,6 +77,26 @@ public class Applicant {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public void testId(int id) throws InvalidIdException {
+        if(id <= 0)
+            throw new InvalidIdException("Nem megfelelő ID");
+    }
+
+    public void testAge(int age) throws InvalidAgeException {
+        if(age <= 16 || age > 65)
+            throw new InvalidAgeException("Nem megfelelő életkor");
+    }
+
+    public void testEmptyField(String field) throws EmptyFieldException {
+        if(field.length() == 0)
+            throw new EmptyFieldException("Üres mező");
+    }
+
+    public void testPhoneNumber(String phoneNumber) throws InvalidPhoneNumberException {
+        if(phoneNumber.length() != 11 && !phoneNumber.matches("[0-9]+"))
+            throw new InvalidPhoneNumberException("Érvénytelen telefonszám");
     }
 
     @Override

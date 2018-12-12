@@ -1,5 +1,9 @@
 package hu.iit.me.model;
 
+import hu.iit.me.exceptions.EmptyFieldException;
+import hu.iit.me.exceptions.InvalidIdException;
+import hu.iit.me.exceptions.InvalidPaymentException;
+
 public class Job {
 
     private int jobId;
@@ -8,7 +12,15 @@ public class Job {
     private int payment;
     private String description;
 
-    public Job(int jobId, String name, String department, int payment, String description) {
+    public Job() {}
+
+    public Job(int jobId, String name, String department, int payment, String description) throws InvalidIdException, EmptyFieldException, InvalidPaymentException{
+        testId(jobId);
+        testEmptyField(name);
+        testEmptyField(department);
+        testEmptyField(description);
+        testPayment(payment);
+
         this.jobId = jobId;
         this.jobName = name;
         this.department = department;
@@ -54,6 +66,21 @@ public class Job {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void testId(int id) throws InvalidIdException {
+        if(id <= 0)
+            throw new InvalidIdException("Nem megfelelő ID");
+    }
+
+    public void testEmptyField(String field) throws EmptyFieldException {
+        if(field.length() == 0)
+            throw new EmptyFieldException("Üres mező");
+    }
+
+    public void testPayment(int payment) throws InvalidPaymentException {
+        if(payment <= 0)
+            throw new InvalidPaymentException("Érvénytelen fizetési érték");
     }
 
     @Override
